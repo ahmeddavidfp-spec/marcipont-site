@@ -1,0 +1,408 @@
+<style>
+:root{
+  --ground:#eef3e6;--surface:#ffffff;--surface-2:#e7eedd;
+  --ink:#16241a;--ink-soft:#54655a;--line:rgba(21,45,33,.14);
+  --green:#2d6a4f;--green-deep:#1b4332;--green-mid:#40916c;
+  --accent:#6fae13;--accent-ink:#4d7c0a;--honey:#c47d22;--wa:#25d366;
+  --cream:#f3f7ea;--radius:16px;--radius-lg:22px;
+  --shadow:0 22px 50px -28px rgba(12,32,20,.5);--shadow-soft:0 10px 26px -18px rgba(12,32,20,.34);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --ground:#0b1710;--surface:#12241a;--surface-2:#183121;
+  --ink:#e9f2e4;--ink-soft:#a3b7a7;--line:rgba(255,255,255,.12);
+  --accent:#9bd42f;--accent-ink:#b7e556;--honey:#e0a24a;
+  --shadow:0 24px 60px -30px rgba(0,0,0,.75);--shadow-soft:0 12px 30px -22px rgba(0,0,0,.6);
+}}
+:root[data-theme="light"]{--ground:#eef3e6;--surface:#fff;--surface-2:#e7eedd;--ink:#16241a;--ink-soft:#54655a;--line:rgba(21,45,33,.14);--accent:#6fae13;--accent-ink:#4d7c0a;--honey:#c47d22}
+:root[data-theme="dark"]{--ground:#0b1710;--surface:#12241a;--surface-2:#183121;--ink:#e9f2e4;--ink-soft:#a3b7a7;--line:rgba(255,255,255,.12);--accent:#9bd42f;--accent-ink:#b7e556;--honey:#e0a24a}
+
+*{box-sizing:border-box}
+body{margin:0}
+.page{font-family:var(--sans);color:var(--ink);background:var(--ground);line-height:1.6;min-height:100vh;padding-bottom:120px}
+h1,h2{font-family:var(--serif);font-weight:600;margin:0;line-height:1.1;text-wrap:balance}
+p{margin:0}
+
+/* header */
+.top{background:radial-gradient(120% 120% at 80% 0%,rgba(155,212,47,.22),transparent 55%),linear-gradient(160deg,var(--green-deep),#0d2416);
+  color:var(--cream);padding:34px clamp(18px,5vw,44px) 30px;position:relative;overflow:hidden}
+.top .mark{width:46px;height:46px;margin-bottom:16px}
+.top .kicker{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:#bfe07a;margin-bottom:12px;font-weight:700}
+.top h1{font-size:clamp(1.8rem,5vw,2.7rem)}
+.top p{color:#d6e6c6;max-width:52ch;margin-top:12px;font-size:1.02rem}
+.wrap{max-width:760px;margin:0 auto;padding:0 clamp(18px,5vw,28px)}
+
+/* progress (sticky under header) */
+.pbar-wrap{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--surface) 90%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.pbar-inner{max-width:760px;margin:0 auto;padding:11px clamp(18px,5vw,28px);display:flex;align-items:center;gap:14px}
+.pbar{flex:1;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.pbar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green-mid),var(--accent));
+  border-radius:99px;transition:width .4s cubic-bezier(.2,.7,.2,1)}
+.pbar-txt{font-size:.82rem;font-weight:700;color:var(--accent-ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* form */
+form{padding-top:26px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:clamp(20px,3vw,30px);margin-bottom:20px;box-shadow:var(--shadow-soft)}
+.sec-head{display:flex;align-items:center;gap:13px;margin-bottom:6px}
+.sec-num{width:38px;height:38px;flex:none;border-radius:11px;background:color-mix(in srgb,var(--accent) 18%,transparent);
+  color:var(--accent-ink);display:grid;place-items:center;font-family:var(--serif);font-size:1.1rem;font-weight:700}
+.sec-head h2{font-size:1.35rem}
+.sec-intro{color:var(--ink-soft);font-size:.94rem;margin:2px 0 18px}
+.sec-head + .fields{margin-top:16px}
+.fields{display:flex;flex-direction:column;gap:16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:520px){.two{grid-template-columns:1fr}}
+
+.f label{display:block;font-size:.86rem;font-weight:600;color:var(--ink);margin-bottom:7px}
+.f .opt{color:var(--ink-soft);font-weight:400;font-size:.8rem}
+.f input[type=text],.f textarea{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);
+  background:var(--ground);color:var(--ink);font:inherit;font-size:.97rem;transition:border-color .2s,box-shadow .2s}
+.f input::placeholder,.f textarea::placeholder{color:color-mix(in srgb,var(--ink-soft) 75%,transparent)}
+.f input:focus,.f textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 20%,transparent)}
+.f textarea{resize:vertical;min-height:78px}
+
+/* yes/no segmented */
+.seg{display:inline-flex;gap:6px;background:var(--surface-2);padding:5px;border-radius:12px}
+.seg button{border:none;background:transparent;color:var(--ink-soft);font:inherit;font-weight:600;font-size:.9rem;
+  padding:8px 20px;border-radius:9px;cursor:pointer;transition:background .2s,color .2s}
+.seg button.on{background:var(--green);color:var(--cream);box-shadow:var(--shadow-soft)}
+.seg button.on.no{background:var(--honey);color:#2a1c06}
+
+/* checkbox */
+.chk{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;
+  cursor:pointer;transition:border-color .2s,background .2s;background:var(--ground)}
+.chk:hover{border-color:var(--accent)}
+.chk.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.chk .box{width:22px;height:22px;flex:none;border-radius:7px;border:2px solid var(--green-mid);display:grid;place-items:center;transition:background .2s,border-color .2s}
+.chk.on .box{background:var(--accent);border-color:var(--accent)}
+.chk .box svg{width:14px;height:14px;color:#0a1c11;opacity:0;transition:opacity .2s}
+.chk.on .box svg{opacity:1}
+.chk span{font-size:.95rem;font-weight:500}
+.chk-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.chk-grid{grid-template-columns:1fr}}
+
+/* sticky action bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:color-mix(in srgb,var(--surface) 94%,transparent);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line);box-shadow:0 -14px 34px -24px rgba(0,0,0,.4)}
+.bar-inner{max-width:760px;margin:0 auto;padding:14px clamp(18px,5vw,28px);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.bar .hint{font-size:.82rem;color:var(--ink-soft);flex:1;min-width:140px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;padding:.85em 1.4em;border-radius:999px;
+  font-weight:700;font-size:.95rem;border:none;cursor:pointer;font-family:var(--sans);transition:transform .2s,box-shadow .2s,background .2s}
+.btn svg{width:1.15em;height:1.15em}
+.btn-wa{background:var(--wa);color:#04240f}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 14px 28px -14px var(--wa)}
+.btn-ghost{background:var(--surface-2);color:var(--ink)}
+.btn-ghost:hover{transform:translateY(-2px)}
+
+/* result modal */
+.modal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:18px;
+  background:rgba(6,16,10,.6);backdrop-filter:blur(4px)}
+.modal.open{display:flex}
+.modal-card{background:var(--surface);border-radius:var(--radius-lg);max-width:600px;width:100%;max-height:88vh;
+  overflow:auto;padding:clamp(22px,4vw,34px);box-shadow:var(--shadow);border:1px solid var(--line)}
+.modal-card h2{font-size:1.5rem;margin-bottom:8px}
+.modal-card .sub{color:var(--ink-soft);font-size:.94rem;margin-bottom:18px}
+.modal-card textarea{width:100%;min-height:210px;border-radius:12px;border:1.5px solid var(--line);background:var(--ground);
+  color:var(--ink);font:inherit;font-size:.86rem;line-height:1.5;padding:14px;resize:vertical}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.modal-actions .btn{flex:1;min-width:150px}
+.close-x{float:right;background:var(--surface-2);border:none;width:38px;height:38px;border-radius:11px;cursor:pointer;color:var(--ink);display:grid;place-items:center}
+.close-x svg{width:20px;height:20px}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);z-index:60;background:var(--green-deep);
+  color:var(--cream);padding:12px 22px;border-radius:999px;font-size:.9rem;font-weight:600;opacity:0;pointer-events:none;
+  transition:opacity .3s,transform .3s;box-shadow:var(--shadow)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.saved-note{text-align:center;color:var(--ink-soft);font-size:.82rem;padding:6px 0 26px}
+.foot{text-align:center;color:var(--ink-soft);font-size:.8rem;padding:8px 18px 30px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="page">
+  <header class="top">
+    <div class="wrap">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="23" fill="#2d6a4f"/>
+        <path d="M24 37c0-8 3-13 9-16-1 8-4 12-9 16Z" fill="#cfe89a"/>
+        <path d="M24 37c0-8-3-13-9-16 1 8 4 12 9 16Z" fill="#8bc34a"/>
+        <path d="M24 37V20" stroke="#f3f7ea" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="24" cy="15" r="4" fill="#f3f7ea"/>
+      </svg>
+      <div class="kicker">Jardinerie Marcipont</div>
+    </div>
+  </header>
+
+  <div class="pbar-wrap">
+    <div class="pbar-inner">
+      <div class="pbar"><span id="pfill"></span></div>
+      <div class="pbar-txt" id="ptxt">0 %</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <form id="form" autocomplete="off"></form>
+    <div class="saved-note" id="savedNote"></div>
+    <div class="foot">Formulaire sécurisé · vos réponses restent sur votre téléphone jusqu'à l'envoi.</div>
+  </div>
+
+  <div class="bar">
+    <div class="bar-inner">
+      <span class="hint" id="barHint">Répondez, puis envoyez vos réponses.</span>
+      <button class="btn btn-ghost" id="resetBtn" type="button">Tout effacer</button>
+      <button class="btn btn-wa" id="finishBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.24.67-1.4 1.3-1.9 1.34-.5.05-.97.24-3.27-.68-2.75-1.08-4.5-3.9-4.63-4.08-.14-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.3.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.57.8 1.96.87 2.1.07.14.12.3.02.48-.09.18-.14.3-.28.46-.14.16-.29.36-.42.48-.14.14-.28.29-.12.56.16.27.72 1.18 1.54 1.91 1.06.94 1.95 1.24 2.22 1.38.27.14.43.12.6-.07.16-.18.68-.8.86-1.07.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.89.27.13.45.2.52.31.07.12.07.66-.17 1.33Z"/></svg>
+        Terminer &amp; envoyer
+      </button>
+    </div>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <button class="close-x" id="closeModal" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <h2>Vos réponses sont prêtes 🎉</h2>
+      <p class="sub">Envoyez-les par WhatsApp, ou copiez le texte et collez-le dans votre conversation.</p>
+      <textarea id="output" readonly></textarea>
+      <div class="modal-actions">
+        <button class="btn btn-wa" id="waBtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.24.67-1.4 1.3-1.9 1.34-.5.05-.97.24-3.27-.68-2.75-1.08-4.5-3.9-4.63-4.08-.14-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.3.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.57.8 1.96.87 2.1.07.14.12.3.02.48-.09.18-.14.3-.28.46-.14.16-.29.36-.42.48-.14.14-.28.29-.12.56.16.27.72 1.18 1.54 1.91 1.06.94 1.95 1.24 2.22 1.38.27.14.43.12.6-.07.16-.18.68-.8.86-1.07.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.89.27.13.45.2.52.31.07.12.07.66-.17 1.33Z"/></svg>Envoyer par WhatsApp</button>
+        <button class="btn btn-ghost" id="copyBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copier</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORE="marcipont_form_v1";
+
+  var SECTIONS=[
+    {t:"Coordonnées", ic:"1", f:[
+      {id:"nom", l:"Nom exact du magasin (tel qu'il doit apparaître)", ph:"Jardinerie Marcipont"},
+      {id:"slogan", l:"Slogan à afficher", ph:"Actuel : Cultivez votre bonheur"},
+      {id:"adresse", t:"area", l:"Adresse complète", ph:"Rue, n°, code postal, ville"},
+      {id:"tel", l:"Téléphone / GSM", ph:"+32 ...", half:true},
+      {id:"email", l:"E-mail", ph:"vous@exemple.be", half:true},
+      {id:"domaine", l:"Nom de domaine déjà existant", opt:true, ph:"www...", half:true},
+      {id:"tva", l:"N° d'entreprise / TVA", opt:true, ph:"BE 0...", half:true}
+    ]},
+    {t:"Horaires", ic:"2", intro:"Ex. « 9h00 – 18h30 » ou « Fermé ».", f:[
+      {id:"h_lun", l:"Lundi", ph:"", half:true},
+      {id:"h_mar", l:"Mardi", ph:"", half:true},
+      {id:"h_mer", l:"Mercredi", ph:"", half:true},
+      {id:"h_jeu", l:"Jeudi", ph:"", half:true},
+      {id:"h_ven", l:"Vendredi", ph:"", half:true},
+      {id:"h_sam", l:"Samedi", ph:"", half:true},
+      {id:"h_dim", l:"Dimanche", ph:"", half:true},
+      {id:"h_special", t:"area", l:"Congés annuels / horaires de saison", opt:true, ph:""}
+    ]},
+    {t:"Réseaux sociaux", ic:"3", intro:"La page Facebook est déjà reliée au site.", f:[
+      {id:"instagram", l:"Instagram", opt:true, ph:"@... ou lien", half:true},
+      {id:"autre_reseau", l:"Autre (TikTok, Google...)", opt:true, ph:"", half:true}
+    ]},
+    {t:"Vos rayons", ic:"4", intro:"Produits ou marques à mettre en avant.", f:[
+      {id:"r_jardinerie", t:"area", l:"Jardinerie", ph:"Plantes, fleurs, potager..."},
+      {id:"r_materiel", t:"area", l:"Matériel horticole", ph:"Outils, tondeuses, arrosage..."},
+      {id:"r_animaux", t:"area", l:"Animaux", ph:"Alimentation, accessoires..."},
+      {id:"r_maison", t:"area", l:"Maison & Décorations", ph:"Cache-pots, mobilier, déco..."},
+      {id:"r_autre", l:"Un autre rayon à ajouter ?", opt:true, ph:""}
+    ]},
+    {t:"Montages floraux", ic:"5", f:[
+      {id:"m_commande", t:"yn", l:"Uniquement sur commande ?"},
+      {id:"m_delai", l:"Délai habituel", ph:"", half:true},
+      {id:"m_prix", l:"Fourchette de prix (de ... à ...)", ph:"", half:true},
+      {id:"m_livraison", t:"yn", l:"Livraison possible ?"},
+      {id:"m_zone", l:"Zone / frais de livraison", opt:true, ph:""},
+      {id:"m_occasions", t:"area", l:"Occasions proposées", ph:"Deuil, mariage, naissance, fêtes..."}
+    ]},
+    {t:"Services", ic:"6", f:[
+      {id:"s_livraison", t:"yn", l:"Livraison à domicile ?"},
+      {id:"s_clickcollect", t:"yn", l:"Commande par téléphone / Click & Collect ?"},
+      {id:"s_fidelite", t:"yn", l:"Carte de fidélité ?"},
+      {id:"s_cadeaux", t:"yn", l:"Chèques-cadeaux ?"},
+      {id:"s_parking", t:"yn", l:"Parking clients ?"},
+      {id:"s_pmr", t:"yn", l:"Accès personnes à mobilité réduite ?"},
+      {id:"s_paiement", l:"Moyens de paiement acceptés", ph:"Bancontact, cash, cartes..."}
+    ]},
+    {t:"Votre histoire", ic:"7", intro:"Pour la rubrique « Notre histoire ».", f:[
+      {id:"hist_annee", l:"Année de création", ph:"1985 ?", half:true},
+      {id:"hist_fondateur", l:"Fondateur(s) — nom(s)", ph:"", half:true},
+      {id:"hist_gerant", l:"Gérants actuels (famille / génération)", ph:""},
+      {id:"hist_dates", t:"area", l:"2 ou 3 dates ou étapes marquantes", ph:""},
+      {id:"hist_valeurs", t:"area", l:"Ce qui vous rend unique / vos valeurs", ph:""}
+    ]},
+    {t:"L'équipe", ic:"8", f:[
+      {id:"eq_nb", l:"Nombre de personnes dans l'équipe", ph:"", half:true},
+      {id:"eq_presenter", t:"yn", l:"Présenter l'équipe sur le site ?"},
+      {id:"eq_photo", t:"yn", l:"Une photo d'équipe est-elle disponible ?"}
+    ]},
+    {t:"Photos disponibles", ic:"9", intro:"Cochez ce que vous pourrez nous envoyer (par WhatsApp).", f:[
+      {id:"photos", t:"checks", l:"", items:[
+        "Logo haute résolution","Façade / enseigne","Intérieur / rayons",
+        "L'équipe","Produits / montages","Album Facebook"
+      ]}
+    ]}
+  ];
+
+  var data={};
+  try{ data=JSON.parse(localStorage.getItem(STORE)||"{}")||{}; }catch(e){ data={}; }
+
+  var form=document.getElementById("form");
+  var allFields=[];
+
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+
+  SECTIONS.forEach(function(sec){
+    var card=el("section","card");
+    var head=el("div","sec-head");
+    head.appendChild(el("div","sec-num",sec.ic));
+    head.appendChild(el("h2",null,sec.t));
+    card.appendChild(head);
+    if(sec.intro) card.appendChild(el("p","sec-intro",sec.intro));
+    var fields=el("div","fields");
+
+    // group consecutive half fields into .two rows
+    var i=0;
+    while(i<sec.f.length){
+      var fdef=sec.f[i];
+      if(fdef.half && sec.f[i+1] && sec.f[i+1].half){
+        var row=el("div","two");
+        row.appendChild(buildField(sec.f[i]));
+        row.appendChild(buildField(sec.f[i+1]));
+        fields.appendChild(row); i+=2;
+      } else {
+        fields.appendChild(buildField(fdef)); i++;
+      }
+    }
+    card.appendChild(fields);
+    form.appendChild(card);
+  });
+
+  function buildField(fdef){
+    var wrap=el("div","f");
+    allFields.push(fdef);
+    var labelTxt=fdef.l;
+    if(fdef.t==="checks"){
+      var grid=el("div","chk-grid");
+      var cur=data[fdef.id]||[];
+      fdef.items.forEach(function(it){
+        var c=el("label","chk"+(cur.indexOf(it)>=0?" on":""));
+        var box=el("span","box");
+        box.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>';
+        c.appendChild(box); c.appendChild(el("span",null,it));
+        c.addEventListener("click",function(){
+          var arr=data[fdef.id]||[]; var k=arr.indexOf(it);
+          if(k>=0){arr.splice(k,1);c.classList.remove("on");}else{arr.push(it);c.classList.add("on");}
+          data[fdef.id]=arr; save();
+        });
+        grid.appendChild(c);
+      });
+      wrap.appendChild(grid);
+      return wrap;
+    }
+    if(labelTxt){
+      var lab=el("label",null,labelTxt);
+      if(fdef.opt){var s=el("span","opt"," (facultatif)");lab.appendChild(s);}
+      wrap.appendChild(lab);
+    }
+    if(fdef.t==="yn"){
+      var seg=el("div","seg");
+      var bOui=el("button","",""); bOui.type="button"; bOui.textContent="Oui";
+      var bNon=el("button","no",""); bNon.type="button"; bNon.textContent="Non";
+      if(data[fdef.id]==="Oui")bOui.classList.add("on");
+      if(data[fdef.id]==="Non"){bNon.classList.add("on");}
+      bOui.addEventListener("click",function(){data[fdef.id]="Oui";bOui.classList.add("on");bNon.classList.remove("on");save();});
+      bNon.addEventListener("click",function(){data[fdef.id]="Non";bNon.classList.add("on");bOui.classList.remove("on");save();});
+      seg.appendChild(bOui); seg.appendChild(bNon); wrap.appendChild(seg);
+      return wrap;
+    }
+    var inp;
+    if(fdef.t==="area"){inp=el("textarea");}else{inp=el("input");inp.type="text";}
+    inp.placeholder=fdef.ph||""; inp.value=data[fdef.id]||"";
+    inp.addEventListener("input",function(){data[fdef.id]=inp.value;save();});
+    wrap.appendChild(inp);
+    return wrap;
+  }
+
+  var pfill=document.getElementById("pfill"),ptxt=document.getElementById("ptxt"),
+      savedNote=document.getElementById("savedNote"),barHint=document.getElementById("barHint");
+  var saveTimer=null;
+  function save(){
+    try{localStorage.setItem(STORE,JSON.stringify(data));}catch(e){}
+    updateProgress();
+    savedNote.textContent="✓ Enregistré automatiquement";
+    clearTimeout(saveTimer);
+    saveTimer=setTimeout(function(){savedNote.textContent="";},1400);
+  }
+  function isFilled(f){
+    var v=data[f.id];
+    if(f.t==="checks")return v&&v.length;
+    return v!=null&&(""+v).trim()!=="";
+  }
+  function updateProgress(){
+    var core=allFields.filter(function(f){return !f.opt;});
+    var done=core.filter(isFilled).length;
+    var pct=core.length?Math.round(done/core.length*100):0;
+    pfill.style.width=pct+"%"; ptxt.textContent=pct+" %";
+    barHint.textContent = pct<100 ? (done+" / "+core.length+" questions essentielles") : "Tout est prêt — envoyez vos réponses ✅";
+  }
+  updateProgress();
+
+  function buildText(){
+    var L=[];
+    L.push("FORMULAIRE — MISE À JOUR DU SITE");
+    L.push("Jardinerie Marcipont");
+    if(data.repondant)L.push("Rempli par : "+data.repondant);
+    L.push("");
+    SECTIONS.forEach(function(sec){
+      if(sec.t==="Vous")return;
+      var lines=[];
+      sec.f.forEach(function(f){
+        if(f.id==="repondant")return;
+        if(f.t==="checks"){
+          var v=data[f.id]||[];
+          if(v.length)lines.push("Photos dispo : "+v.join(", "));
+          return;
+        }
+        if(isFilled(f)){lines.push(f.l.replace(/\s*\(facultatif\)/,"")+" : "+data[f.id]);}
+      });
+      if(lines.length){L.push("— "+sec.t.toUpperCase()+" —");L=L.concat(lines);L.push("");}
+    });
+    return L.join("\n").trim();
+  }
+
+  var modal=document.getElementById("modal"),output=document.getElementById("output"),toast=document.getElementById("toast");
+  function showToast(m){toast.textContent=m;toast.classList.add("show");setTimeout(function(){toast.classList.remove("show");},2200);}
+
+  document.getElementById("finishBtn").addEventListener("click",function(){
+    output.value=buildText(); modal.classList.add("open");
+  });
+  document.getElementById("closeModal").addEventListener("click",function(){modal.classList.remove("open");});
+  modal.addEventListener("click",function(e){if(e.target===modal)modal.classList.remove("open");});
+
+  document.getElementById("waBtn").addEventListener("click",function(){
+    var url="https://wa.me/?text="+encodeURIComponent(output.value);
+    window.open(url,"_blank");
+  });
+  document.getElementById("copyBtn").addEventListener("click",function(){
+    var t=output.value;
+    function ok(){showToast("Réponses copiées ✓");}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(ok,function(){fallback();});
+    }else fallback();
+    function fallback(){output.focus();output.select();try{document.execCommand("copy");ok();}catch(e){showToast("Sélectionnez et copiez le texte");}}
+  });
+
+  document.getElementById("resetBtn").addEventListener("click",function(){
+    if(!confirm("Effacer toutes vos réponses ?"))return;
+    data={};try{localStorage.removeItem(STORE);}catch(e){}
+    document.querySelectorAll("#form input,#form textarea").forEach(function(i){i.value="";});
+    document.querySelectorAll("#form .seg button").forEach(function(b){b.classList.remove("on");});
+    document.querySelectorAll("#form .chk").forEach(function(c){c.classList.remove("on");});
+    updateProgress();showToast("Formulaire réinitialisé");
+  });
+})();
+</script>

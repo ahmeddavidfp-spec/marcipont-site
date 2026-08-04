@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jardinerie Marcipont — Cultivez votre bonheur</title>
+<meta name="description" content="Jardinerie Marcipont à Jemeppe-sur-Sambre depuis 1985 : plantes, matériel horticole, animalerie, maison & décorations. Produits de qualité et conseils passionnés." />
+
+<!-- Préchargement des ressources externes -->
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link rel="preconnect" href="https://www.facebook.com" />
+
+<style>
+/* ============================================================
+   JARDINERIE MARCIPONT — v2 · photographies réelles
+   Identité botanique : sous-bois profond + vert-pousse vivant
+   ============================================================ */
+:root{
+  --ground:#f4f7ee;
+  --surface:#ffffff;
+  --surface-2:#eaf0e0;
+  --ink:#16241a;
+  --ink-soft:#4c5d50;
+  --line:rgba(21,45,33,.12);
+
+  --green:#2d6a4f;
+  --green-deep:#12301d;
+  --green-mid:#40916c;
+
+  --accent:#6fae13;
+  --accent-ink:#4d7c0a;
+  --honey:#c47d22;
+  --fb:#1877f2;
+
+  --hero-1:#0a1c11;
+  --hero-2:#12301d;
+  --cream:#f3f7ea;
+
+  --radius:16px;
+  --radius-lg:26px;
+  --shadow:0 26px 60px -30px rgba(12,32,20,.5);
+  --shadow-soft:0 14px 34px -22px rgba(12,32,20,.34);
+  --maxw:1220px;
+
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ground:#0b1710;--surface:#11241a;--surface-2:#173021;
+    --ink:#e9f2e4;--ink-soft:#a3b7a7;--line:rgba(255,255,255,.10);
+    --accent:#9bd42f;--accent-ink:#b7e556;--honey:#e0a24a;
+    --shadow:0 26px 64px -30px rgba(0,0,0,.75);--shadow-soft:0 14px 36px -24px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="light"]{
+  --ground:#f4f7ee;--surface:#ffffff;--surface-2:#eaf0e0;
+  --ink:#16241a;--ink-soft:#4c5d50;--line:rgba(21,45,33,.12);
+  --accent:#6fae13;--accent-ink:#4d7c0a;--honey:#c47d22;
+  --shadow:0 26px 60px -30px rgba(12,32,20,.5);--shadow-soft:0 14px 34px -22px rgba(12,32,20,.34);
+}
+:root[data-theme="dark"]{
+  --ground:#0b1710;--surface:#11241a;--surface-2:#173021;
+  --ink:#e9f2e4;--ink-soft:#a3b7a7;--line:rgba(255,255,255,.10);
+  --accent:#9bd42f;--accent-ink:#b7e556;--honey:#e0a24a;
+  --shadow:0 26px 64px -30px rgba(0,0,0,.75);--shadow-soft:0 14px 36px -24px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--ground);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.07;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+img,svg,iframe{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,46px)}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-ink);display:inline-flex;align-items:center;gap:.6em}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:currentColor;opacity:.7}
+.section{padding:clamp(72px,10vw,124px) 0}
+.lede{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--ink-soft);max-width:60ch}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;gap:.55em;padding:.92em 1.5em;border-radius:999px;font-weight:600;font-size:.97rem;
+  border:1.5px solid transparent;cursor:pointer;position:relative;font-family:var(--sans);
+  transition:transform .25s ease,box-shadow .25s ease,background .25s,color .25s,border-color .25s}
+.btn svg{width:1.15em;height:1.15em}
+.btn-primary{background:var(--green);color:var(--cream);box-shadow:var(--shadow-soft)}
+.btn-primary:hover{background:var(--green-deep);transform:translateY(-2px)}
+.btn-accent{background:var(--accent);color:#0a1c11}
+.btn-accent:hover{transform:translateY(-2px);box-shadow:0 16px 30px -16px var(--accent)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--accent);transform:translateY(-2px)}
+.btn-light{background:var(--cream);color:var(--green-deep)}
+.btn-light:hover{transform:translateY(-2px);box-shadow:0 16px 34px -18px rgba(0,0,0,.6)}
+.btn-outline-light{border-color:rgba(243,247,234,.55);color:var(--cream)}
+.btn-outline-light:hover{background:rgba(243,247,234,.14);transform:translateY(-2px)}
+
+/* ============ HEADER ============ */
+.header{position:fixed;inset:0 0 auto 0;z-index:50}
+.header-inner{max-width:var(--maxw);margin:0 auto;padding:16px clamp(20px,5vw,46px);
+  display:flex;align-items:center;justify-content:space-between;gap:22px;transition:padding .3s ease}
+.bar{position:absolute;inset:0;background:color-mix(in srgb,var(--surface) 84%,transparent);
+  backdrop-filter:blur(14px);border-bottom:1px solid transparent;opacity:0;transition:opacity .35s,border-color .35s}
+.header.scrolled .bar{opacity:1;border-bottom-color:var(--line)}
+.header.scrolled .header-inner{padding-top:10px;padding-bottom:10px}
+.brand{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.brand .mark{width:44px;height:44px;flex:none;transition:transform .3s}
+.brand:hover .mark{transform:rotate(-8deg)}
+.brand-txt b{font-family:var(--serif);font-size:1.42rem;font-weight:600}
+.brand-txt span{display:block;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--accent-ink);margin-top:3px}
+.header:not(.scrolled) .brand-txt b{color:var(--cream)}
+.header:not(.scrolled) .brand-txt span{color:#c7dd8f}
+.header:not(.scrolled) .nav a{color:var(--cream)}
+.header:not(.scrolled) .icon-btn{color:var(--cream);border-color:rgba(243,247,234,.4)}
+.nav{display:flex;align-items:center;gap:26px;position:relative;z-index:1}
+.nav a{font-size:.95rem;font-weight:500;position:relative;padding:4px 0}
+.nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--accent);transition:width .28s;border-radius:2px}
+.nav a:hover::after,.nav a.active::after{width:100%}
+.tools{display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.icon-btn{width:42px;height:42px;border-radius:12px;border:1.5px solid var(--line);background:transparent;color:var(--ink);
+  cursor:pointer;display:grid;place-items:center;transition:transform .2s,border-color .2s,background .2s}
+.icon-btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.icon-btn svg{width:20px;height:20px}
+.burger{display:none}
+
+/* menu mobile */
+.mobile-menu{position:fixed;inset:0;z-index:60;visibility:hidden;pointer-events:none}
+.mobile-menu .scrim{position:absolute;inset:0;background:rgba(6,18,11,.55);opacity:0;transition:opacity .3s}
+.mobile-panel{position:absolute;right:0;top:0;height:100%;width:min(86vw,360px);background:var(--surface);
+  box-shadow:var(--shadow);transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.8,.2,1);
+  padding:26px;display:flex;flex-direction:column;gap:6px}
+.mobile-menu.open{visibility:visible;pointer-events:auto}
+.mobile-menu.open .scrim{opacity:1}
+.mobile-menu.open .mobile-panel{transform:none}
+.mm-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.mm-link{font-family:var(--serif);font-size:1.45rem;padding:12px 0;border-bottom:1px solid var(--line)}
+.mm-link:hover{color:var(--accent-ink)}
+.mm-cta{margin-top:auto}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;color:var(--cream);overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-3;background-size:cover;background-position:center;
+  background-image:url("https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1920&q=80&auto=format&fit=crop");
+  transform:scale(1.04)}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg,rgba(8,20,12,.9) 12%,rgba(10,28,17,.66) 48%,rgba(10,28,17,.32) 100%),
+             linear-gradient(0deg,rgba(8,20,12,.7),transparent 45%)}
+.hero-grain{position:absolute;inset:0;z-index:-1;opacity:.35;mix-blend-mode:soft-light;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.4px);background-size:5px 5px}
+.hero .wrap{position:relative;z-index:2;padding-top:150px;padding-bottom:96px}
+.hero-eyebrow{color:#cfe89a;margin-bottom:24px}
+.hero-eyebrow::before{background:#cfe89a}
+.hero h1{font-size:clamp(3rem,9.5vw,7.6rem);letter-spacing:-.01em;margin:0 0 6px;text-shadow:0 30px 60px rgba(0,0,0,.4)}
+.hero h1 .em{font-style:italic;color:#d3ea9e}
+.hero-sub{font-size:clamp(1.05rem,1.7vw,1.3rem);color:#e0ecd3;max-width:46ch;margin:22px 0 38px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+.hero-scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;
+  align-items:center;gap:8px;color:#cfe0bb;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase}
+.hero-scroll .mouse{width:24px;height:38px;border:1.5px solid #9fbd82;border-radius:14px;position:relative}
+.hero-scroll .mouse::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:2px;background:#cfe89a;transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translate(-50%,10px)}}
+.leaf{position:absolute;top:-8%;z-index:1;pointer-events:none;opacity:0;animation:fall linear infinite;filter:drop-shadow(0 6px 8px rgba(0,0,0,.3))}
+@keyframes fall{0%{opacity:0;transform:translateY(-10vh) rotate(0)}8%{opacity:.8}92%{opacity:.8}100%{opacity:0;transform:translateY(114vh) rotate(320deg)}}
+@media (prefers-reduced-motion:reduce){.leaf{display:none}.hero-scroll .mouse::after{animation:none}.hero-bg{transform:none}}
+
+/* ============ BANDE CONFIANCE ============ */
+.trust{background:var(--green-deep);color:var(--cream)}
+.trust .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(18px,5vw,56px);padding:24px;align-items:center}
+.trust-item{display:flex;align-items:center;gap:11px;font-size:.95rem}
+.trust-item svg{width:22px;height:22px;color:var(--accent);flex:none}
+.trust-sep{width:6px;height:6px;border-radius:50%;background:rgba(243,247,234,.35)}
+@media (max-width:760px){.trust-sep{display:none}}
+
+/* section head */
+.head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:52px}
+.head-row h2{font-size:clamp(2.1rem,4.4vw,3.5rem)}
+.head-row .eyebrow{margin-bottom:16px}
+
+/* ============ UNIVERS ============ */
+.univers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{position:relative;border-radius:var(--radius-lg);overflow:hidden;isolation:isolate;min-height:440px;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:26px;color:#fff;cursor:pointer;
+  box-shadow:var(--shadow-soft);transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.card:hover{transform:translateY(-10px);box-shadow:var(--shadow)}
+.card .bg{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.card:hover .bg{transform:scale(1.07)}
+.card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,20,12,.05) 20%,rgba(6,20,12,.35) 52%,rgba(6,20,12,.9))}
+.card .ic{width:46px;height:46px;margin-bottom:auto;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);
+  border-radius:13px;display:grid;place-items:center;backdrop-filter:blur(4px)}
+.card .ic svg{width:26px;height:26px}
+.card .num{font-family:var(--serif);font-size:.85rem;opacity:.85;margin-top:14px}
+.card h3{font-size:1.65rem;margin:4px 0 6px}
+.card p{font-size:.93rem;color:#e8f0dd;line-height:1.5}
+.card .go{margin-top:15px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem;opacity:.55;transform:translateY(4px);transition:opacity .35s,transform .35s}
+.card:hover .go{opacity:1;transform:none}
+.card .go svg{width:16px;height:16px;transition:transform .3s}
+.card:hover .go svg{transform:translateX(4px)}
+@media (max-width:980px){.univers-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.univers-grid{grid-template-columns:1fr}.card{min-height:360px}}
+
+/* ============ HISTOIRE ============ */
+.histoire{background:var(--surface)}
+.hist-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(38px,6vw,84px);align-items:center}
+.hist-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5}
+.hist-photo img{width:100%;height:100%;object-fit:cover}
+.hist-photo .badge{position:absolute;left:20px;bottom:20px;background:var(--honey);color:#2a1c06;
+  border-radius:14px;padding:12px 18px;box-shadow:var(--shadow-soft);font-family:var(--serif)}
+.hist-photo .badge b{font-size:1.7rem;display:block;line-height:1}
+.hist-photo .badge span{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase}
+.hist h2{font-size:clamp(2rem,4vw,3.2rem);margin:14px 0 26px}
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--green-mid),transparent)}
+.tl-item{position:relative;padding-bottom:30px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-33px;top:4px;width:20px;height:20px;border-radius:50%;
+  background:var(--surface);border:3px solid var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 20%,transparent)}
+.tl-item .yr{font-family:var(--serif);font-style:italic;color:var(--green-mid);font-size:1.15rem;margin-bottom:4px}
+.tl-item h3{font-size:1.25rem;margin-bottom:6px}
+.tl-item p{color:var(--ink-soft);font-size:.98rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+.stat{background:var(--ground);border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;text-align:center}
+.stat b{font-family:var(--serif);font-size:clamp(2rem,3.8vw,2.9rem);color:var(--green-mid);display:block;font-variant-numeric:tabular-nums}
+.stat span{font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft)}
+@media (max-width:900px){.hist-grid{grid-template-columns:1fr}.hist-photo{aspect-ratio:16/11}.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ============ POURQUOI ============ */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px 30px;transition:transform .3s,border-color .3s}
+.feature:hover{transform:translateY(-6px);border-color:var(--accent)}
+.feature .fic{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--accent-ink);margin-bottom:20px}
+.feature .fic svg{width:28px;height:28px}
+.feature h3{font-size:1.3rem;margin-bottom:10px}
+.feature p{color:var(--ink-soft);font-size:.96rem}
+@media (max-width:900px){.why-grid{grid-template-columns:1fr}}
+
+/* ============ GALERIE ============ */
+.gallery{background:var(--surface)}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:168px;gap:14px}
+.tile{border-radius:var(--radius);overflow:hidden;position:relative;box-shadow:var(--shadow-soft)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.tile:hover img{transform:scale(1.08)}
+.tile .cap{position:absolute;left:14px;bottom:12px;color:#fff;font-size:.85rem;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,.7);z-index:2}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.55))}
+.t-wide{grid-column:span 2}.t-tall{grid-row:span 2}
+@media (max-width:760px){.mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}.t-wide{grid-column:span 2}}
+
+/* ============ FACEBOOK ============ */
+.facebook{background:var(--ground)}
+.fb-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px);align-items:center}
+.fb-copy .fb-chip{display:inline-flex;align-items:center;gap:9px;background:color-mix(in srgb,var(--fb) 14%,transparent);
+  color:var(--fb);border:1px solid color-mix(in srgb,var(--fb) 40%,transparent);border-radius:999px;
+  padding:7px 15px;font-weight:700;font-size:.82rem;margin-bottom:20px}
+.fb-chip svg{width:18px;height:18px}
+.fb-copy h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:16px}
+.fb-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn-fb{background:var(--fb);color:#fff}
+.btn-fb:hover{background:#0f5ecb;transform:translateY(-2px)}
+.fb-embed{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);background:var(--surface);
+  border:1px solid var(--line);min-height:560px;display:flex;flex-direction:column}
+.fb-embed .fb-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--surface)}
+.fb-embed .fb-head .av{width:44px;height:44px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:none}
+.fb-embed .fb-head .av svg{width:26px;height:26px}
+.fb-embed .fb-head b{font-size:1rem;font-family:var(--serif)}
+.fb-embed .fb-head span{font-size:.8rem;color:var(--ink-soft)}
+.fb-embed iframe{border:0;width:100%;flex:1;min-height:500px;background:var(--surface)}
+@media (max-width:900px){.fb-grid{grid-template-columns:1fr}}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--green-deep);color:var(--cream)}
+.contact .eyebrow{color:#cfe89a}.contact .eyebrow::before{background:#cfe89a}
+.contact h2{font-size:clamp(2rem,4vw,3.2rem);color:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,5vw,60px);margin-top:46px;align-items:start}
+.info-block{margin-bottom:28px}
+.info-block .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#9fc46f;margin-bottom:10px}
+.info-line{display:flex;gap:13px;align-items:flex-start;color:#e7f0da;font-size:1.02rem;margin-bottom:9px}
+.info-line svg{width:20px;height:20px;color:var(--accent);flex:none;margin-top:3px}
+.info-line a:hover{color:#cfe89a}
+.map-actions{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 20px}
+.map-actions .btn{padding:.7em 1.1em;font-size:.9rem}
+.btn-waze{background:#33ccff;color:#04121a}
+.btn-waze:hover{transform:translateY(-2px);box-shadow:0 14px 28px -16px #33ccff}
+.hours{width:100%;border-collapse:collapse;font-size:.96rem}
+.hours td{padding:9px 0;border-bottom:1px solid rgba(243,247,234,.14)}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums;color:#cfe0bb}
+.hours tr.today td{color:#e4f2cc;font-weight:600}
+.hours tr.today td:first-child::before{content:"● ";color:var(--accent);font-size:.7em;vertical-align:middle}
+.hours .open-pill{display:inline-block;margin-top:14px;background:color-mix(in srgb,var(--accent) 24%,transparent);
+  border:1px solid var(--accent);color:#e4f2cc;border-radius:999px;padding:5px 14px;font-size:.82rem;font-weight:600}
+.map-embed{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(243,247,234,.16);aspect-ratio:16/12;background:#0d2416}
+.map-embed iframe{width:100%;height:100%;border:0;filter:saturate(1.05)}
+.form-card{background:rgba(255,255,255,.06);border:1px solid rgba(243,247,234,.16);border-radius:var(--radius-lg);
+  padding:clamp(24px,3vw,34px);backdrop-filter:blur(6px);margin-top:20px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#a9c885;margin-bottom:7px}
+.field input,.field textarea{width:100%;padding:12px 15px;border-radius:12px;border:1.5px solid rgba(243,247,234,.2);
+  background:rgba(9,24,14,.4);color:var(--cream);font:inherit;font-size:.98rem;transition:border-color .2s,box-shadow .2s}
+.field input::placeholder,.field textarea::placeholder{color:#7f9a72}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.field textarea{resize:vertical;min-height:96px}
+.form-note{font-size:.84rem;color:#9fb693;margin-top:8px}
+.form-ok{display:none;align-items:center;gap:10px;background:color-mix(in srgb,var(--accent) 22%,transparent);
+  border:1px solid var(--accent);border-radius:12px;padding:12px 16px;color:#e7f0da;font-size:.94rem;margin-top:14px}
+.form-ok.show{display:flex}
+.form-ok svg{width:20px;height:20px;color:var(--accent);flex:none}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+
+/* ============ FOOTER ============ */
+.footer{background:var(--hero-1);color:#bcd0ae}
+.footer .wrap{padding:60px clamp(20px,5vw,46px) 30px}
+.footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(243,247,234,.12)}
+.footer .brand-txt b{color:var(--cream)}
+.footer .brand-txt span{color:#8aa87a}
+.footer-cols{display:flex;gap:clamp(30px,6vw,72px);flex-wrap:wrap}
+.footer-col h4{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#8aa87a;margin:0 0 14px}
+.footer-col a,.footer-col p{display:block;color:#bcd0ae;font-size:.94rem;margin-bottom:9px;transition:color .2s}
+.footer-col a:hover{color:var(--accent)}
+.foot-social{display:flex;gap:10px;margin-top:14px}
+.foot-social a{width:40px;height:40px;border-radius:11px;border:1px solid rgba(243,247,234,.18);display:grid;place-items:center;color:#cfe0bb;transition:transform .2s,background .2s,color .2s}
+.foot-social a:hover{transform:translateY(-2px);background:var(--fb);color:#fff;border-color:var(--fb)}
+.foot-social a svg{width:20px;height:20px}
+.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:.85rem;color:#7f9870}
+.footer-bottom a:hover{color:var(--accent)}
+
+/* back to top */
+.totop{position:fixed;right:22px;bottom:22px;z-index:40;width:50px;height:50px;border-radius:50%;background:var(--green);color:var(--cream);
+  border:none;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);opacity:0;transform:translateY(20px) scale(.8);
+  pointer-events:none;transition:opacity .3s,transform .3s,background .2s}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{background:var(--green-deep)}
+.totop svg{width:22px;height:22px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ============ MONTAGES ============ */
+.montages{background:var(--ground)}
+.mont-intro{max-width:64ch;margin-bottom:44px}
+.mont-masonry{columns:3;column-gap:16px}
+.mont-item{break-inside:avoid;margin:0 0 16px;border-radius:var(--radius);overflow:hidden;position:relative;cursor:zoom-in;
+  box-shadow:var(--shadow-soft);border:1px solid var(--line);display:block;width:100%;background:var(--surface-2)}
+.mont-item img{width:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.mont-item:hover img{transform:scale(1.06)}
+.mont-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,20,12,.6));opacity:0;transition:opacity .35s}
+.mont-item:hover::after{opacity:1}
+.mont-item .cap{position:absolute;left:14px;bottom:12px;right:14px;color:#fff;font-size:.9rem;font-weight:600;z-index:2;
+  opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s;text-shadow:0 2px 8px rgba(0,0,0,.6);display:flex;align-items:center;gap:8px}
+.mont-item .cap svg{width:16px;height:16px;flex:none}
+.mont-item:hover .cap{opacity:1;transform:none}
+.mont-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:40px}
+.mont-cta p{color:var(--ink-soft);font-size:.98rem}
+@media (max-width:900px){.mont-masonry{columns:2}}
+@media (max-width:560px){.mont-masonry{columns:1}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(6,14,9,.92);display:none;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s;backdrop-filter:blur(4px)}
+.lb.open{display:flex;opacity:1}
+.lb img{max-width:92vw;max-height:84vh;border-radius:12px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8);
+  transform:scale(.96);transition:transform .3s}
+.lb.open img{transform:scale(1)}
+.lb .lb-cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#dfe9d2;font-size:.95rem;padding:0 20px}
+.lb .lb-count{position:absolute;top:20px;left:24px;color:#9fb693;font-size:.9rem;letter-spacing:.05em;font-variant-numeric:tabular-nums}
+.lb-btn{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;
+  width:52px;height:52px;border-radius:50%;cursor:pointer;display:grid;place-items:center;transition:background .2s,transform .2s}
+.lb-btn:hover{background:rgba(255,255,255,.22);transform:scale(1.06)}
+.lb-btn svg{width:24px;height:24px}
+.lb-close{top:18px;right:24px}
+.lb-prev{left:2vw;top:50%;transform:translateY(-50%)}
+.lb-prev:hover{transform:translateY(-50%) scale(1.06)}
+.lb-next{right:2vw;top:50%;transform:translateY(-50%)}
+.lb-next:hover{transform:translateY(-50%) scale(1.06)}
+@media (max-width:560px){.lb-prev{left:8px}.lb-next{right:8px}.lb-btn{width:44px;height:44px}}
+
+@media (max-width:900px){.nav{display:none}.burger{display:grid}}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="bar"></div>
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="Jardinerie Marcipont — accueil">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="23" fill="var(--green)"/>
+        <path d="M24 37c0-8 3-13 9-16-1 8-4 12-9 16Z" fill="#cfe89a"/>
+        <path d="M24 37c0-8-3-13-9-16 1 8 4 12 9 16Z" fill="#8bc34a"/>
+        <path d="M24 37V20" stroke="#f3f7ea" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="24" cy="15" r="4" fill="#f3f7ea"/>
+      </svg>
+      <span class="brand-txt"><b>Marcipont</b><span>Jardinerie · 1985</span></span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#univers">Nos univers</a>
+      <a href="#montages">Montages</a>
+      <a href="#histoire">Notre histoire</a>
+      <a href="#pourquoi">Pourquoi nous</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#facebook">Facebook</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <button class="icon-btn" id="themeBtn" aria-label="Changer de thème" title="Thème clair/sombre">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg>
+      </button>
+      <a href="#contact" class="btn btn-primary" style="padding:.7em 1.15em">Nous rendre visite</a>
+      <button class="icon-btn burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- menu mobile -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="scrim" data-close></div>
+  <div class="mobile-panel">
+    <div class="mm-head">
+      <b style="font-family:var(--serif);font-size:1.3rem">Marcipont</b>
+      <button class="icon-btn" data-close aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <a class="mm-link" href="#univers" data-close>Nos univers</a>
+    <a class="mm-link" href="#montages" data-close>Montages</a>
+    <a class="mm-link" href="#histoire" data-close>Notre histoire</a>
+    <a class="mm-link" href="#pourquoi" data-close>Pourquoi nous</a>
+    <a class="mm-link" href="#galerie" data-close>Galerie</a>
+    <a class="mm-link" href="#facebook" data-close>Facebook</a>
+    <a class="mm-link" href="#contact" data-close>Contact</a>
+    <a class="btn btn-primary mm-cta" href="#contact" data-close>Nous rendre visite</a>
+  </div>
+</div>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div id="leaves" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow hero-eyebrow">Jemeppe-sur-Sambre · Depuis 1985</span>
+    <h1>Cultivez<br><span class="em">votre bonheur.</span></h1>
+    <p class="hero-sub">Plantes, matériel horticole, animalerie et décoration : quatre univers réunis sous un même toit, portés par la même passion familiale depuis quatre décennies.</p>
+    <div class="hero-cta">
+      <a href="#univers" class="btn btn-light">Découvrir nos univers
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-outline-light">Nous trouver</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true"><span class="mouse"></span>Défiler</div>
+</section>
+
+<!-- ============ BANDE CONFIANCE ============ -->
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21c-6-4-9-8-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4-3 8-9 12Z"/></svg><span>Entreprise <b>familiale</b></span></div>
+    <span class="trust-sep"></span>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M5 8c0 4 3 6 7 6M19 8c0 4-3 6-7 6"/></svg><span>Produits de <b>qualité</b></span></div>
+    <span class="trust-sep"></span>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z"/><path d="M9 12l2 2 4-4"/></svg><span>Conseils d'<b>experts</b></span></div>
+    <span class="trust-sep"></span>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><span>Au cœur de <b>Jemeppe-sur-Sambre</b></span></div>
+  </div>
+</section>
+
+<!-- ============ UNIVERS ============ -->
+<section class="section" id="univers">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <span class="eyebrow reveal">Nos univers</span>
+        <h2 class="reveal d1">Tout pour le jardin,<br>la maison et le vivant.</h2>
+      </div>
+      <p class="lede reveal d2">Quatre rayons pensés comme quatre saisons — pour ceux qui jardinent, décorent, bricolent ou prennent soin de leurs compagnons.</p>
+    </div>
+    <div class="univers-grid">
+      <article class="card reveal">
+        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=800&q=80&auto=format&fit=crop')"></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20c0-6 2-9 7-11-1 6-3 9-7 11Z"/><path d="M12 20c0-6-2-9-7-11 1 6 3 9 7 11Z"/><path d="M12 20V9"/></svg></div>
+        <span class="num">01</span>
+        <h3>Jardinerie</h3>
+        <p>Plantes d'intérieur et d'extérieur, fleurs, arbustes, potager, terreaux et semences.</p>
+        <span class="go">Explorer le rayon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="card reveal d1">
+        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80&auto=format&fit=crop')"></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l7 7M4 4l4 1 1 4-4-1-1-4ZM20 4l-7 7M20 4l-4 1-1 4 4-1 1-4ZM11 11l2 2M13 13l6 7M11 13l-6 7"/></svg></div>
+        <span class="num">02</span>
+        <h3>Matériel horticole</h3>
+        <p>Outils, sécateurs, tondeuses, arrosage et tout l'équipement du bon jardinier.</p>
+        <span class="go">Explorer le rayon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="card reveal d2">
+        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&q=80&auto=format&fit=crop')"></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="15" r="4"/><circle cx="6" cy="9" r="1.8"/><circle cx="18" cy="9" r="1.8"/><circle cx="9" cy="5.5" r="1.8"/><circle cx="15" cy="5.5" r="1.8"/></svg></div>
+        <span class="num">03</span>
+        <h3>Animaux</h3>
+        <p>Alimentation, accessoires et soins pour chiens, chats, oiseaux et animaux de basse-cour.</p>
+        <span class="go">Explorer le rayon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="card reveal d3">
+        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1462530260150-162092dbf011?w=800&q=80&auto=format&fit=crop')"></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 11l9-7 9 7M5 10v10h14V10"/><path d="M12 20v-5M12 15c-2 0-3-1.5-3-3 1.7 0 3 1 3 3ZM12 15c2 0 3-1.5 3-3-1.7 0-3 1-3 3Z"/></svg></div>
+        <span class="num">04</span>
+        <h3>Maison &amp; Décorations</h3>
+        <p>Cache-pots, mobilier de jardin, décoration d'intérieur et idées cadeaux au fil des saisons.</p>
+        <span class="go">Explorer le rayon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MONTAGES ============ -->
+<section class="section montages" id="montages">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <span class="eyebrow reveal">Montages floraux</span>
+        <h2 class="reveal d1">L'art floral,<br>fait maison.</h2>
+      </div>
+      <p class="lede reveal d2">Roses éternelles sous cloche, coupes fleuries, compositions de saison — chaque montage est une pièce unique réalisée dans nos ateliers.</p>
+    </div>
+    <p class="mont-intro lede reveal">Explorez l'art floral raffiné à la Jardinerie Marcipont avec nos montages de fleurs, des créations qui transforment votre espace de vie. Que ce soit pour égayer votre intérieur, offrir un cadeau mémorable ou embellir un événement spécial, nos montages de fleurs captivent par leur originalité. Laissez-vous emporter par la splendeur florale de la jardinerie et ajoutez une touche de fraîcheur à chaque moment.</p>
+
+    <div class="mont-masonry" id="montMasonry">
+      <button class="mont-item reveal" data-full="images/montages/Marcipont_16.jpg" data-cap="Composition de saison"><img src="images/montages/Marcipont_16.jpg" alt="Composition florale de saison" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Composition de saison</span></button>
+      <button class="mont-item reveal d1" data-full="images/montages/Marcipont_2.jpg" data-cap="Rose éternelle sous cloche"><img src="images/montages/Marcipont_2.jpg" alt="Rose éternelle sous cloche de verre" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Rose éternelle sous cloche</span></button>
+      <button class="mont-item reveal d2" data-full="images/montages/Marcipont_6.jpg" data-cap="Coupe fleurie de saison"><img src="images/montages/Marcipont_6.jpg" alt="Coupe fleurie de saison" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Coupe fleurie de saison</span></button>
+      <button class="mont-item reveal" data-full="images/montages/Marcipont_13.jpg" data-cap="Rose &amp; tendresse"><img src="images/montages/Marcipont_13.jpg" alt="Rose rose dans un écrin avec peluche" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Rose &amp; tendresse</span></button>
+      <button class="mont-item reveal d1" data-full="images/montages/Marcipont_4.jpg" data-cap="Amaryllis des fêtes"><img src="images/montages/Marcipont_4.jpg" alt="Composition d'amaryllis des fêtes" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Amaryllis des fêtes</span></button>
+      <button class="mont-item reveal d2" data-full="images/montages/Marcipont_9.jpg" data-cap="Rose sous globe"><img src="images/montages/Marcipont_9.jpg" alt="Rose rouge sous globe de verre" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Rose sous globe</span></button>
+      <button class="mont-item reveal" data-full="images/montages/Marcipont_5.jpg" data-cap="Roses suspendues"><img src="images/montages/Marcipont_5.jpg" alt="Roses dans des gouttes de verre suspendues" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Roses suspendues</span></button>
+      <button class="mont-item reveal d1" data-full="images/montages/Marcipont_18.jpg" data-cap="Panier de printemps"><img src="images/montages/Marcipont_18.jpg" alt="Panier fleuri de printemps" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Panier de printemps</span></button>
+      <button class="mont-item reveal d2" data-full="images/montages/Marcipont_3.jpg" data-cap="Rose en écrin de verre"><img src="images/montages/Marcipont_3.jpg" alt="Rose rouge en écrin de verre" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Rose en écrin de verre</span></button>
+      <button class="mont-item reveal" data-full="images/montages/Marcipont_12.jpg" data-cap="Rose poudrée sous cloche"><img src="images/montages/Marcipont_12.jpg" alt="Rose poudrée sous cloche de verre" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Rose poudrée sous cloche</span></button>
+      <button class="mont-item reveal d1" data-full="images/montages/Marcipont_1.jpg" data-cap="Nos créations en vitrine"><img src="images/montages/Marcipont_1.jpg" alt="Créations florales exposées en vitrine" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Nos créations en vitrine</span></button>
+      <button class="mont-item reveal d2" data-full="images/montages/Marcipont_14.jpg" data-cap="Rose suspendue"><img src="images/montages/Marcipont_14.jpg" alt="Rose rouge dans une cloche suspendue" loading="lazy" /><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Rose suspendue</span></button>
+    </div>
+
+    <div class="mont-cta reveal">
+      <a href="#contact" class="btn btn-primary">Commander un montage
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p>Pièces uniques sur commande — pour un cadeau, un événement ou simplement se faire plaisir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTRE HISTOIRE ============ -->
+<section class="section histoire" id="histoire">
+  <div class="wrap">
+    <div class="hist-grid">
+      <div class="hist-photo reveal">
+        <img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?w=900&q=80&auto=format&fit=crop" alt="Intérieur fleuri de la jardinerie" loading="lazy" />
+        <div class="badge"><b>1985</b><span>Depuis</span></div>
+      </div>
+      <div class="hist">
+        <span class="eyebrow reveal">Notre histoire</span>
+        <h2 class="reveal d1">Une histoire de famille,<br>enracinée depuis 1985.</h2>
+        <div class="timeline">
+          <div class="tl-item reveal d1">
+            <div class="yr">1985 — La première graine</div>
+            <h3>L'ouverture de la jardinerie</h3>
+            <p>La Jardinerie Marcipont s'installe à Jemeppe-sur-Sambre pour fournir des produits de qualité pour vos jardins et votre intérieur.</p>
+          </div>
+          <div class="tl-item reveal d2">
+            <div class="yr">Au fil des saisons — La maison grandit</div>
+            <h3>Quatre univers sous un même toit</h3>
+            <p>Autour du végétal viennent s'ajouter le matériel horticole, l'animalerie et la décoration, pour tout réunir en un seul endroit.</p>
+          </div>
+          <div class="tl-item reveal d3">
+            <div class="yr">Aujourd'hui — La même passion</div>
+            <h3>Un commerce familial de proximité</h3>
+            <p>Toujours au même endroit, animés par l'envie de transmettre le goût du jardin, saison après saison. « On ne vend pas des plantes — on transmet l'envie de jardiner. »</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><b data-count="41" data-suffix="">0</b><span>Ans d'expertise</span></div>
+      <div class="stat reveal d1"><b data-count="4" data-suffix="">0</b><span>Univers réunis</span></div>
+      <div class="stat reveal d2"><b data-count="100" data-suffix="%">0</b><span>Passion locale</span></div>
+      <div class="stat reveal d3"><b data-count="6" data-suffix="j">0</b><span>Ouvert / semaine</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POURQUOI ============ -->
+<section class="section" id="pourquoi">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <span class="eyebrow reveal">Pourquoi Marcipont</span>
+        <h2 class="reveal d1">De bonnes raisons<br>de pousser notre porte.</h2>
+      </div>
+      <p class="lede reveal d2">Une grande surface de produits, avec l'attention d'un commerce de proximité.</p>
+    </div>
+    <div class="why-grid">
+      <article class="feature reveal">
+        <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a5 5 0 0 1 5 5c0 2-1 3-2 4s-1 2-1 3H10c0-1 0-2-1-3S7 10 7 8a5 5 0 0 1 5-5ZM9 19h6M10 22h4"/></svg></div>
+        <h3>Le conseil avant tout</h3>
+        <p>Une équipe qui connaît ses plantes et ses produits, et prend le temps de vous orienter selon votre jardin et vos envies.</p>
+      </article>
+      <article class="feature reveal d1">
+        <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l2.4 6.5L21 9l-5 4.3L17.6 21 12 17l-5.6 4L8 13.3 3 9l6.6-.5L12 2Z"/></svg></div>
+        <h3>Une sélection de qualité</h3>
+        <p>Des végétaux sains et des marques éprouvées, choisis pour durer saison après saison — pas pour le seul prix d'appel.</p>
+      </article>
+      <article class="feature reveal d2">
+        <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21h18M6 21v-8M18 21v-8M4 13l8-7 8 7M9 21v-4h6v4"/></svg></div>
+        <h3>Un commerce d'ici</h3>
+        <p>Indépendant et familial depuis 1985, ancré à Jemeppe-sur-Sambre : on se connaît, on se recroise, on vous reconnaît.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERIE ============ -->
+<section class="section gallery" id="galerie">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <span class="eyebrow reveal">L'ambiance</span>
+        <h2 class="reveal d1">Un petit air de serre,<br>toute l'année.</h2>
+      </div>
+      <p class="lede reveal d2">De l'allée des plantes vertes au coin décoration, quelques aperçus de la maison.</p>
+    </div>
+    <div class="mosaic">
+      <div class="tile t-tall reveal"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700&q=80&auto=format&fit=crop" alt="Fleurs de saison" loading="lazy" /><span class="cap">Fleurs de saison</span></div>
+      <div class="tile t-wide reveal d1"><img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=1000&q=80&auto=format&fit=crop" alt="Potager" loading="lazy" /><span class="cap">Potager</span></div>
+      <div class="tile reveal d2"><img src="https://images.unsplash.com/photo-1459156212016-c812468e2115?w=600&q=80&auto=format&fit=crop" alt="Succulentes et cactus" loading="lazy" /><span class="cap">Succulentes</span></div>
+      <div class="tile reveal d3"><img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&q=80&auto=format&fit=crop" alt="Animalerie" loading="lazy" /><span class="cap">Animalerie</span></div>
+      <div class="tile t-wide reveal"><img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=1000&q=80&auto=format&fit=crop" alt="Fruits et légumes du potager" loading="lazy" /><span class="cap">Fruits &amp; légumes</span></div>
+      <div class="tile reveal d1"><img src="https://images.unsplash.com/photo-1466781783364-36c955e42a7f?w=600&q=80&auto=format&fit=crop" alt="Décoration végétale" loading="lazy" /><span class="cap">Déco végétale</span></div>
+      <div class="tile reveal d2"><img src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=600&q=80&auto=format&fit=crop" alt="Bonsaï" loading="lazy" /><span class="cap">Bonsaï &amp; cadeaux</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FACEBOOK ============ -->
+<section class="section facebook" id="facebook">
+  <div class="wrap">
+    <div class="fb-grid">
+      <div class="fb-copy">
+        <span class="fb-chip reveal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>Suivez-nous</span>
+        <h2 class="reveal d1">La vie de la jardinerie,<br>au fil des saisons.</h2>
+        <p class="lede reveal d2">Arrivages de plantes, nouveautés, conseils de saison et bons plans : retrouvez toute notre actualité et nos dernières publications directement sur notre page Facebook.</p>
+        <div class="fb-actions reveal d2">
+          <a class="btn btn-fb" href="https://www.facebook.com/profile.php?id=100051036114306" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>
+            Voir notre page Facebook
+          </a>
+          <a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=100051036114306" target="_blank" rel="noopener">J'aime la page 👍</a>
+        </div>
+      </div>
+      <div class="fb-embed reveal d1">
+        <div class="fb-head">
+          <span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#cfe89a" stroke-width="2" stroke-linecap="round"><path d="M12 20c0-6 2-9 7-11-1 6-3 9-7 11Z"/><path d="M12 20c0-6-2-9-7-11 1 6 3 9 7 11Z"/><path d="M12 20V9"/></svg></span>
+          <div><b>Jardinerie Marcipont</b><br><span>Publications récentes</span></div>
+        </div>
+        <iframe title="Publications Facebook de la Jardinerie Marcipont" loading="lazy"
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100051036114306&tabs=timeline&width=500&height=560&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true"
+          scrolling="no" frameborder="0" allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal">Nous rendre visite</span>
+    <h2 class="reveal d1">Passez nous voir,<br>on vous attend.</h2>
+    <div class="contact-grid">
+      <div class="reveal d2">
+        <div class="info-block">
+          <div class="lbl">Coordonnées</div>
+          <div class="info-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21c-5-5-8-8.5-8-12a8 8 0 0 1 16 0c0 3.5-3 7-8 12Z"/><circle cx="12" cy="9" r="2.6"/></svg><span>Chaussée de Charleroi 70<br>5190 Jemeppe-sur-Sambre, Belgique</span></div>
+          <div class="info-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5c0 9 6 15 15 15 1 0 2-1 2-2v-2.5a1 1 0 0 0-.8-1l-3-.6a1 1 0 0 0-1 .4l-1 1.3a12 12 0 0 1-5.2-5.2l1.3-1a1 1 0 0 0 .4-1l-.6-3a1 1 0 0 0-1-.8H6c-1 0-2 1-2 2Z"/></svg><a href="tel:+3271785123">+32 71 78 51 23</a></div>
+          <div class="info-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg><a href="mailto:jardinerie.marcipont@gmail.com">jardinerie.marcipont@gmail.com</a></div>
+        </div>
+        <div class="info-block">
+          <div class="lbl">Y aller</div>
+          <div class="map-actions">
+            <a class="btn btn-accent" href="https://www.google.com/maps/dir/?api=1&destination=Chauss%C3%A9e%20de%20Charleroi%2070%2C%205190%20Jemeppe-sur-Sambre" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21c-5-5-8-8.5-8-12a8 8 0 0 1 16 0c0 3.5-3 7-8 12Z"/><circle cx="12" cy="9" r="2.6"/></svg>
+              Itinéraire Google
+            </a>
+            <a class="btn btn-waze" href="https://waze.com/ul?q=Chauss%C3%A9e%20de%20Charleroi%2070%2C%205190%20Jemeppe-sur-Sambre&navigate=yes" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a9 9 0 0 0-9 9c0 2 .7 3.4 1 4 .3.7 0 2-.5 2.8-.3.5 0 1.2.6 1.2 2 0 3.3-.9 4.2-1.7A9 9 0 1 0 12 2Zm-3 8a1.2 1.2 0 1 1 0-2.4A1.2 1.2 0 0 1 9 10Zm6 0a1.2 1.2 0 1 1 0-2.4A1.2 1.2 0 0 1 15 10Zm-3 5c-2 0-3.6-1.2-4-2.8h8c-.4 1.6-2 2.8-4 2.8Z"/></svg>
+              Ouvrir dans Waze
+            </a>
+            <a class="btn btn-outline-light" href="tel:+3271785123">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5c0 9 6 15 15 15 1 0 2-1 2-2v-2.5a1 1 0 0 0-.8-1l-3-.6a1 1 0 0 0-1 .4l-1 1.3a12 12 0 0 1-5.2-5.2l1.3-1a1 1 0 0 0 .4-1l-.6-3a1 1 0 0 0-1-.8H6c-1 0-2 1-2 2Z"/></svg>
+              Appeler
+            </a>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="lbl">Horaires d'ouverture</div>
+          <table class="hours" id="hours">
+            <tr data-day="1"><td>Lundi</td><td>13h00 – 18h30</td></tr>
+            <tr data-day="2"><td>Mardi</td><td>9h00 – 18h30</td></tr>
+            <tr data-day="3"><td>Mercredi</td><td>9h00 – 18h30</td></tr>
+            <tr data-day="4"><td>Jeudi</td><td>9h00 – 18h30</td></tr>
+            <tr data-day="5"><td>Vendredi</td><td>9h00 – 18h30</td></tr>
+            <tr data-day="6"><td>Samedi</td><td>9h00 – 18h30</td></tr>
+            <tr data-day="0"><td>Dimanche</td><td>10h00 – 13h00</td></tr>
+          </table>
+          <span class="open-pill" id="openPill">Horaires</span>
+        </div>
+        <form class="form-card" id="contactForm" novalidate>
+          <div class="field"><label for="nom">Votre nom</label><input id="nom" name="nom" type="text" placeholder="Prénom et nom" required /></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="vous@exemple.be" required /></div>
+          <div class="field"><label for="msg">Votre message</label><textarea id="msg" name="msg" placeholder="Une question sur une plante, un produit, une disponibilité…" required></textarea></div>
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center">Envoyer le message
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 12l16-8-6 16-3-6-7-2Z"/></svg>
+          </button>
+          <p class="form-note">Nous vous répondons généralement le jour même pendant les heures d'ouverture.</p>
+          <div class="form-ok" id="formOk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Merci ! Votre message est prêt à être envoyé — nous vous recontactons vite.</div>
+        </form>
+      </div>
+
+      <div class="reveal d3">
+        <div class="map-embed">
+          <iframe title="Plan d'accès — Jardinerie Marcipont" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Chauss%C3%A9e%20de%20Charleroi%2070%2C%205190%20Jemeppe-sur-Sambre&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div style="max-width:320px">
+        <a class="brand" href="#top" style="margin-bottom:16px">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="23" fill="var(--green)"/>
+            <path d="M24 37c0-8 3-13 9-16-1 8-4 12-9 16Z" fill="#cfe89a"/>
+            <path d="M24 37c0-8-3-13-9-16 1 8 4 12 9 16Z" fill="#8bc34a"/>
+            <path d="M24 37V20" stroke="#f3f7ea" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="24" cy="15" r="4" fill="#f3f7ea"/>
+          </svg>
+          <span class="brand-txt"><b>Marcipont</b><span>Jardinerie · 1985</span></span>
+        </a>
+        <p style="color:#9cb58e;font-size:.95rem">Cultivez votre bonheur, à Jemeppe-sur-Sambre depuis quatre décennies.</p>
+        <div class="foot-social">
+          <a href="https://www.facebook.com/profile.php?id=100051036114306" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+          <a href="mailto:jardinerie.marcipont@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
+          </a>
+          <a href="tel:+3271785123" aria-label="Téléphone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5c0 9 6 15 15 15 1 0 2-1 2-2v-2.5a1 1 0 0 0-.8-1l-3-.6a1 1 0 0 0-1 .4l-1 1.3a12 12 0 0 1-5.2-5.2l1.3-1a1 1 0 0 0 .4-1l-.6-3a1 1 0 0 0-1-.8H6c-1 0-2 1-2 2Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h4>Nos univers</h4><a href="#univers">Jardinerie</a><a href="#univers">Matériel horticole</a><a href="#univers">Animaux</a><a href="#univers">Maison &amp; Décorations</a></div>
+        <div class="footer-col"><h4>La maison</h4><a href="#montages">Montages floraux</a><a href="#histoire">Notre histoire</a><a href="#pourquoi">Pourquoi nous</a><a href="#galerie">Galerie</a><a href="#facebook">Facebook</a><a href="#contact">Contact</a></div>
+        <div class="footer-col"><h4>Nous joindre</h4><a href="tel:+3271785123">+32 71 78 51 23</a><a href="mailto:jardinerie.marcipont@gmail.com">jardinerie.marcipont@gmail.com</a><p>Chaussée de Charleroi 70<br>5190 Jemeppe-sur-Sambre</p></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Jardinerie Marcipont — Tous droits réservés.</span>
+      <span>Conçu avec passion, comme un jardin. 🌿</span>
+    </div>
+  </div>
+</footer>
+
+<!-- lightbox montages -->
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse des montages">
+  <span class="lb-count" id="lbCount"></span>
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <img id="lbImg" src="" alt="" />
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<button class="totop" id="totop" aria-label="Remonter en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  var header=document.getElementById("header");
+  var navLinks=Array.prototype.slice.call(document.querySelectorAll(".nav a"));
+  var sections=navLinks.map(function(a){return document.querySelector(a.getAttribute("href"));});
+  var totop=document.getElementById("totop");
+
+  function onScroll(){
+    var y=window.scrollY;
+    header.classList.toggle("scrolled",y>40);
+    totop.classList.toggle("show",y>640);
+    var mid=y+window.innerHeight*0.3,cur=-1;
+    for(var i=0;i<sections.length;i++){if(sections[i]&&sections[i].offsetTop<=mid)cur=i;}
+    navLinks.forEach(function(a,i){a.classList.toggle("active",i===cur);});
+  }
+  window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+  totop.addEventListener("click",function(){window.scrollTo({top:0,behavior:reduce?"auto":"smooth"});});
+
+  document.getElementById("themeBtn").addEventListener("click",function(){
+    var cur=document.documentElement.getAttribute("data-theme");
+    if(!cur){cur=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";}
+    document.documentElement.setAttribute("data-theme",cur==="dark"?"light":"dark");
+  });
+
+  var burger=document.getElementById("burger"),mm=document.getElementById("mobileMenu");
+  function closeMenu(){mm.classList.remove("open");burger.setAttribute("aria-expanded","false");}
+  burger.addEventListener("click",function(){mm.classList.add("open");burger.setAttribute("aria-expanded","true");});
+  mm.addEventListener("click",function(e){if(e.target.hasAttribute("data-close")||e.target.closest("[data-close]"))closeMenu();});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});
+
+  var reveals=document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window&&!reduce){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:0.12,rootMargin:"0px 0px -8% 0px"});
+    reveals.forEach(function(el){io.observe(el);});
+  }else{reveals.forEach(function(el){el.classList.add("in");});}
+
+  var counters=document.querySelectorAll("[data-count]");
+  function animateCount(el){
+    var target=parseFloat(el.getAttribute("data-count")),suffix=el.getAttribute("data-suffix")||"";
+    if(reduce){el.textContent=target+suffix;return;}
+    var dur=1400,start=null;
+    function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e)+suffix;if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  if("IntersectionObserver" in window){
+    var cio=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){animateCount(e.target);cio.unobserve(e.target);}});},{threshold:0.6});
+    counters.forEach(function(el){cio.observe(el);});
+  }else{counters.forEach(animateCount);}
+
+  /* horaires du jour + statut ouvert/fermé */
+  try{
+    var now=new Date(),day=now.getDay(),mins=now.getHours()*60+now.getMinutes();
+    var row=document.querySelector('#hours tr[data-day="'+day+'"]');
+    if(row)row.classList.add("today");
+    var sched={1:[[780,1110]],2:[[540,1110]],3:[[540,1110]],4:[[540,1110]],5:[[540,1110]],6:[[540,1110]],0:[[600,780]]};
+    var open=(sched[day]||[]).some(function(s){return mins>=s[0]&&mins<s[1];});
+    var pill=document.getElementById("openPill");
+    if(pill){
+      if(open){pill.textContent="● Ouvert maintenant";}
+      else{pill.textContent="● Fermé actuellement";pill.style.background="color-mix(in srgb,#c9522f 22%,transparent)";pill.style.borderColor="#d5623a";pill.style.color="#f3c9ba";}
+    }
+  }catch(e){}
+
+  var form=document.getElementById("contactForm"),ok=document.getElementById("formOk");
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){form.reportValidity();return;}
+    var nom=document.getElementById("nom").value,email=document.getElementById("email").value,msg=document.getElementById("msg").value;
+    ok.classList.add("show");
+    var body="Nom: "+nom+"%0D%0AEmail: "+email+"%0D%0A%0D%0A"+encodeURIComponent(msg);
+    var href="mailto:jardinerie.marcipont@gmail.com?subject="+encodeURIComponent("Contact site — "+nom)+"&body="+body;
+    setTimeout(function(){window.location.href=href;},700);
+  });
+
+  if(!reduce){
+    var c=document.getElementById("leaves");
+    var svg='<svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor"><path d="M12 22c0-10 4-16 11-19-2 11-5 16-11 19Z"/><path d="M12 22c0-10-4-16-11-19 2 11 5 16 11 19Z" opacity=".85"/></svg>';
+    var tints=["#7cb342","#9ccc56","#bfe07a","#8bc34a","#a2d149"];
+    for(var i=0;i<7;i++){
+      var l=document.createElement("span");l.className="leaf";
+      var s=14+(i*7)%20;l.style.width=s+"px";l.style.height=s+"px";
+      l.style.left=(6+(i*13)%88)+"%";l.style.color=tints[i%tints.length];
+      l.style.animationDuration=(12+(i%4)*3)+"s";l.style.animationDelay=(-(i*2.6))+"s";
+      l.innerHTML=svg;c.appendChild(l);
+    }
+  }
+  /* lightbox montages */
+  var items=Array.prototype.slice.call(document.querySelectorAll(".mont-item"));
+  var lb=document.getElementById("lightbox"),lbImg=document.getElementById("lbImg"),
+      lbCap=document.getElementById("lbCap"),lbCount=document.getElementById("lbCount");
+  var idx=0;
+  function show(i){
+    idx=(i+items.length)%items.length;
+    var el=items[idx];
+    lbImg.src=el.getAttribute("data-full");
+    lbImg.alt=el.getAttribute("data-cap")||"";
+    lbCap.textContent=el.getAttribute("data-cap")||"";
+    lbCount.textContent=(idx+1)+" / "+items.length;
+  }
+  function openLb(i){show(i);lb.classList.add("open");document.body.style.overflow="hidden";}
+  function closeLb(){lb.classList.remove("open");document.body.style.overflow="";}
+  items.forEach(function(el,i){el.addEventListener("click",function(){openLb(i);});});
+  document.getElementById("lbClose").addEventListener("click",closeLb);
+  document.getElementById("lbPrev").addEventListener("click",function(e){e.stopPropagation();show(idx-1);});
+  document.getElementById("lbNext").addEventListener("click",function(e){e.stopPropagation();show(idx+1);});
+  lb.addEventListener("click",function(e){if(e.target===lb)closeLb();});
+  document.addEventListener("keydown",function(e){
+    if(!lb.classList.contains("open"))return;
+    if(e.key==="Escape")closeLb();
+    else if(e.key==="ArrowLeft")show(idx-1);
+    else if(e.key==="ArrowRight")show(idx+1);
+  });
+
+  try{document.getElementById("year").textContent=new Date().getFullYear();}catch(e){}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Interne Claude Code (worktrees, sessions)
+.claude/
+
+# Livrables générés (ne pas versionner)
+marcipont-site.zip
+Questionnaire-Site-Marcipont.pdf
