@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /formulaire-client.html
+
+Sitemap: https://jardinerie-marcipont.be/sitemap.xml
