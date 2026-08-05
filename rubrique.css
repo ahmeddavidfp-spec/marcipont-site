@@ -188,4 +188,11 @@ img,svg{max-width:100%;display:block}
 .wa-float .wa-txt{white-space:nowrap}
 @media (max-width:560px){.wa-float{left:16px;bottom:16px;padding:14px}.wa-float .wa-txt{display:none}}
 
+.header .tools .btn-primary{white-space:nowrap}
 @media (max-width:900px){.nav{display:none}.burger{display:grid}}
+@media (max-width:760px){
+  .header .tools .icon-btn:not(.burger),.header .tools .btn-primary{display:none}
+  .header-inner{gap:12px}
+  .brand .mark{width:40px;height:40px}
+  .brand-txt b{font-size:1.28rem}
+}
