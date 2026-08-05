@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#2d6a4f" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="icon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
 <title>Jardinerie Marcipont — Cultivez votre bonheur</title>
 <meta name="description" content="Jardinerie Marcipont à Jemeppe-sur-Sambre depuis 1985 : plantes, matériel horticole, animalerie, maison & décorations. Produits de qualité et conseils passionnés." />
 
@@ -246,6 +251,12 @@ img,svg,iframe{max-width:100%;display:block}
 .stat{background:var(--ground);border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;text-align:center}
 .stat b{font-family:var(--serif);font-size:clamp(2rem,3.8vw,2.9rem);color:var(--green-mid);display:block;font-variant-numeric:tabular-nums}
 .stat span{font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft)}
+.hist .sign{font-family:var(--serif);font-style:italic;font-size:1.28rem;color:var(--green-mid);margin-top:18px}
+.why-visit{margin-top:56px;background:var(--ground);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,46px)}
+.why-visit .wv-head{margin-bottom:14px}
+.why-visit h3{font-size:clamp(1.45rem,2.8vw,2.1rem);margin-top:10px;max-width:26ch}
+.why-visit p{color:var(--ink-soft);max-width:78ch;margin-top:15px;font-size:1.02rem}
+.why-visit p b{color:var(--ink);font-weight:600}
 @media (max-width:900px){.hist-grid{grid-template-columns:1fr}.hist-photo{aspect-ratio:16/11}.stats{grid-template-columns:repeat(2,1fr)}}
 
 /* ============ POURQUOI ============ */
@@ -353,6 +364,12 @@ img,svg,iframe{max-width:100%;display:block}
 .totop.show{opacity:1;transform:none;pointer-events:auto}
 .totop:hover{background:var(--green-deep)}
 .totop svg{width:22px;height:22px}
+/* bouton WhatsApp flottant */
+.wa-float{position:fixed;left:22px;bottom:22px;z-index:44;display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#04240f;border-radius:999px;padding:13px 20px 13px 15px;font-weight:700;font-size:.95rem;box-shadow:0 14px 30px -10px rgba(37,211,102,.65);transition:transform .2s,box-shadow .2s}
+.wa-float:hover{transform:translateY(-3px);box-shadow:0 18px 38px -12px rgba(37,211,102,.7)}
+.wa-float svg{width:26px;height:26px;flex:none}
+.wa-float .wa-txt{white-space:nowrap}
+@media (max-width:560px){.wa-float{left:16px;bottom:16px;padding:14px}.wa-float .wa-txt{display:none}}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
@@ -602,33 +619,28 @@ img,svg,iframe{max-width:100%;display:block}
   <div class="wrap">
     <div class="hist-grid">
       <div class="hist-photo reveal">
-        <img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?w=900&q=80&auto=format&fit=crop" alt="Intérieur fleuri de la jardinerie" loading="lazy" />
-        <div class="badge"><b>1985</b><span>Depuis</span></div>
+        <img src="images/equipe/yvon-marcipont.jpg" alt="Yvon Marcipont, fondateur de la Jardinerie Marcipont" loading="lazy" />
+        <div class="badge"><b>Yvon</b><span>Fondateur</span></div>
       </div>
       <div class="hist">
-        <span class="eyebrow reveal">Notre histoire</span>
-        <h2 class="reveal d1">Une histoire de famille,<br>enracinée depuis 1985.</h2>
-        <div class="timeline">
-          <div class="tl-item reveal d1">
-            <div class="yr">1985 — La première graine</div>
-            <h3>L'ouverture de la jardinerie</h3>
-            <p>La Jardinerie Marcipont s'installe à Jemeppe-sur-Sambre pour fournir des produits de qualité pour vos jardins et votre intérieur.</p>
-          </div>
-          <div class="tl-item reveal d2">
-            <div class="yr">Au fil des saisons — La maison grandit</div>
-            <h3>Quatre univers sous un même toit</h3>
-            <p>Autour du végétal viennent s'ajouter le matériel horticole, l'animalerie et la décoration, pour tout réunir en un seul endroit.</p>
-          </div>
-          <div class="tl-item reveal d3">
-            <div class="yr">Aujourd'hui — La même passion</div>
-            <h3>Un commerce familial de proximité</h3>
-            <p>Toujours au même endroit, animés par l'envie de transmettre le goût du jardin, saison après saison. « On ne vend pas des plantes — on transmet l'envie de jardiner. »</p>
-          </div>
-        </div>
+        <span class="eyebrow reveal">Qui est Yvon ?</span>
+        <h2 class="reveal d1">L'homme derrière<br>la jardinerie Marcipont.</h2>
+        <p class="lede reveal d1">Yvon Marcipont, c'est le fondateur de la jardinerie du même nom. Il y a 36 ans, après des études de mécanicien et un passage dans l'administration, l'envie de changer de vie a germé. Avec le désir d'être plus proche des gens, il ouvre avec sa femme Muriel un petit commerce de 30 m² où il vend des graines pour animaux.</p>
+        <p class="reveal d2" style="color:var(--ink-soft)">Fils de fermier, son expertise leur permet vite de se faire un nom et de se développer. Au fil des années, ils s'agrandissent pour devenir aujourd'hui une jardinerie incontournable de la région.</p>
+        <p class="sign reveal d3">« Une véritable équipe familiale, qui a à cœur de trouver le meilleur produit pour vous. »</p>
       </div>
     </div>
+
+    <div class="why-visit reveal">
+      <div class="wv-head">
+        <span class="eyebrow">Pourquoi s'y rendre ?</span>
+        <h3>Bien plus qu'une jardinerie : un service hors du commun.</h3>
+      </div>
+      <p>Ce qui fait la différence, c'est le service. Derrière la jardinerie, ce n'est pas qu'un magasin : c'est un véritable petit havre où vous trouverez tout pour aménager votre jardin, vos extérieurs et égayer votre intérieur — arbustes, fleurs, plantations, décorations, matériel motorisé à prix concurrentiels et un rayon animalerie pour gâter vos boules de poils.</p>
+      <p>Mais surtout, ce n'est pas seulement du personnel qualifié qui vous accueille : c'est une véritable <b>équipe familiale</b> qui a à cœur de dénicher le meilleur produit et de vous offrir les meilleurs conseils. Produits de qualité, super ambiance et service qui fait la différence — la jardinerie est faite pour vous.</p>
+    </div>
     <div class="stats">
-      <div class="stat reveal"><b data-count="41" data-suffix="">0</b><span>Ans d'expertise</span></div>
+      <div class="stat reveal"><b data-count="36" data-suffix="">0</b><span>Ans d'expérience</span></div>
       <div class="stat reveal d1"><b data-count="4" data-suffix="">0</b><span>Univers réunis</span></div>
       <div class="stat reveal d2"><b data-count="100" data-suffix="%">0</b><span>Passion locale</span></div>
       <div class="stat reveal d3"><b data-count="6" data-suffix="j">0</b><span>Ouvert / semaine</span></div>
@@ -833,6 +845,11 @@ img,svg,iframe{max-width:100%;display:block}
   <button class="lb-btn lb-next" id="lbNext" aria-label="Suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
   <div class="lb-cap" id="lbCap"></div>
 </div>
+
+<a class="wa-float" href="https://wa.me/3271785123?text=Bonjour%2C%20je%20vous%20contacte%20via%20votre%20site%20web." target="_blank" rel="noopener" aria-label="Nous joindre sur WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.24.67-1.4 1.3-1.9 1.34-.5.05-.97.24-3.27-.68-2.75-1.08-4.5-3.9-4.63-4.08-.14-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.3.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.57.8 1.96.87 2.1.07.14.12.3.02.48-.09.18-.14.3-.28.46-.14.16-.29.36-.42.48-.14.14-.28.29-.12.56.16.27.72 1.18 1.54 1.91 1.06.94 1.95 1.24 2.22 1.38.27.14.43.12.6-.07.16-.18.68-.8.86-1.07.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.89.27.13.45.2.52.31.07.12.07.66-.17 1.33Z"/></svg>
+  <span class="wa-txt">Nous joindre</span>
+</a>
 
 <button class="totop" id="totop" aria-label="Remonter en haut">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>

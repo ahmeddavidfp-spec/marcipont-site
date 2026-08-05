@@ -1,0 +1,17 @@
+{
+  "name": "Jardinerie Marcipont",
+  "short_name": "Marcipont",
+  "description": "Jardinerie à Jemeppe-sur-Sambre depuis 1985 : plantes, matériel horticole, animalerie, maison & décorations.",
+  "lang": "fr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a1c11",
+  "theme_color": "#2d6a4f",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ]
+}
