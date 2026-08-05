@@ -7,3 +7,6 @@
 # Livrables générés (ne pas versionner)
 marcipont-site.zip
 Questionnaire-Site-Marcipont.pdf
+
+# Dossier temporaire d upload manuel
+_deploy/
