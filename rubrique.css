@@ -155,6 +155,8 @@ img,svg{max-width:100%;display:block}
 .footer-col a,.footer-col p{display:block;color:#bcd0ae;font-size:.94rem;margin-bottom:9px;transition:color .2s}
 .footer-col a:hover{color:var(--accent)}
 .footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:.85rem;color:#7f9870}
+.footer-bottom a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.footer-bottom a:hover{color:var(--accent)}
 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
