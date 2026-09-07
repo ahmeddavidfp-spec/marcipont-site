@@ -1,0 +1,26 @@
+{
+  "id": "/",
+  "name": "Jardinerie Marcipont",
+  "short_name": "Marcipont",
+  "description": "Jardinerie familiale à Jemeppe-sur-Sambre depuis 1985 : plantes, matériel horticole, animalerie, maison & décorations et montages floraux.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a1c11",
+  "theme_color": "#2d6a4f",
+  "categories": ["shopping", "business", "lifestyle"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Nos rayons", "short_name": "Rayons", "url": "/#univers" },
+    { "name": "Montages floraux", "short_name": "Montages", "url": "/#montages" },
+    { "name": "Contact & horaires", "short_name": "Contact", "url": "/#contact" }
+  ]
+}

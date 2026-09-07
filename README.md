@@ -25,3 +25,13 @@ Le formulaire est alors accessible sur `https://<projet>.pages.dev/formulaire-cl
 
 ## Domaine personnalisé
 Ajouter `jardineriemarcipont.be` dans les réglages « Custom domains » de l'hébergeur choisi.
+
+## Application (PWA)
+
+Le site est une vraie app installable :
+- `manifest.webmanifest` (id, display standalone, icones any + maskable, raccourcis)
+- `sw.js` : service worker. Pages / CSS / JS / manifeste = reseau d'abord ; images = cache d'abord ; page hors ligne `offline.html`. Les ressources tierces (Unsplash, Google Maps, Facebook) ne sont pas mises en cache.
+- `app.js` : enregistre le service worker et gere le bouton "Installer l'app" (menu mobile) + la notice iOS (Partager > Sur l'ecran d'accueil).
+- `llms.txt` : resume du site pour les IA.
+
+IMPORTANT : a chaque livraison, incrementer `VERSION` dans `sw.js` (ex. marcipont-v2) pour forcer la mise a jour du cache chez les visiteurs.

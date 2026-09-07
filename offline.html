@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#2d6a4f" />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<title>Hors ligne - Jardinerie Marcipont</title>
+<style>
+  :root{color-scheme:light dark}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100svh;display:grid;place-items:center;padding:32px;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:#f3f7ea;text-align:center;
+    background:radial-gradient(120% 90% at 78% 8%,rgba(155,212,47,.22),transparent 55%),linear-gradient(160deg,#0a1c11,#12301d 70%,#0a1c11)}
+  .mark{width:76px;height:76px;margin:0 auto 26px}
+  h1{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-weight:600;font-size:clamp(1.9rem,6vw,2.8rem);margin:0 0 12px;line-height:1.1}
+  p{color:#d8e6c9;max-width:44ch;margin:0 auto 28px;font-size:1.05rem;line-height:1.6}
+  .btn{display:inline-flex;align-items:center;gap:.5em;padding:.9em 1.6em;border-radius:999px;
+    background:#f3f7ea;color:#12301d;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-size:1rem}
+  .tel{display:block;margin-top:22px;color:#cfe89a;text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+  <div>
+    <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <circle cx="24" cy="24" r="23" fill="#2d6a4f"/>
+      <path d="M24 37c0-8 3-13 9-16-1 8-4 12-9 16Z" fill="#cfe89a"/>
+      <path d="M24 37c0-8-3-13-9-16 1 8 4 12 9 16Z" fill="#8bc34a"/>
+      <path d="M24 37V20" stroke="#f3f7ea" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="24" cy="15" r="4" fill="#f3f7ea"/>
+    </svg>
+    <h1>Vous êtes hors ligne</h1>
+    <p>Impossible de charger la page pour le moment. Vérifiez votre connexion et réessayez - le reste du site revient dès que vous êtes reconnecté.</p>
+    <button class="btn" onclick="location.reload()">Réessayer</button>
+    <a class="tel" href="tel:+3271785123">Ou appelez-nous : +32 71 78 51 23</a>
+  </div>
+</body>
+</html>

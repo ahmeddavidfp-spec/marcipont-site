@@ -2,12 +2,16 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Marcipont" />
 <meta name="theme-color" content="#2d6a4f" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="icon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
+<link rel="manifest" href="manifest.webmanifest" />
 <title>Jardinerie Marcipont - Jemeppe-sur-Sambre depuis 1985</title>
 <meta name="description" content="Jardinerie familiale à Jemeppe-sur-Sambre depuis 1985 : plantes d'intérieur et d'extérieur, matériel horticole, animalerie, maison & décorations et montages floraux. Produits de qualité et conseils passionnés." />
 <link rel="canonical" href="https://jardinerie-marcipont.be/" />
@@ -471,6 +475,14 @@ img,svg,iframe{max-width:100%;display:block}
   .header-inner{gap:12px}
   .brand .mark{width:40px;height:40px}
   .brand-txt b{font-size:1.28rem}
+}
+/* PWA : bouton installer + zones sures iOS (safe-area) */
+.mm-install{color:var(--accent-ink);font-weight:600}
+@supports (padding: max(0px)){
+  .header{padding-top:env(safe-area-inset-top)}
+  .header-inner{padding-left:max(clamp(20px,5vw,46px),env(safe-area-inset-left));padding-right:max(clamp(20px,5vw,46px),env(safe-area-inset-right))}
+  .wa-float{bottom:max(22px,env(safe-area-inset-bottom));left:max(22px,env(safe-area-inset-left))}
+  .totop{bottom:max(22px,env(safe-area-inset-bottom));right:max(22px,env(safe-area-inset-right))}
 }
 </style>
 </head>
@@ -1049,5 +1061,6 @@ img,svg,iframe{max-width:100%;display:block}
   try{document.getElementById("year").textContent=new Date().getFullYear();}catch(e){}
 })();
 </script>
+<script src="app.js" defer></script>
 </body>
 </html>

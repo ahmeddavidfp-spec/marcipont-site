@@ -2,12 +2,16 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Marcipont" />
 <meta name="theme-color" content="#2d6a4f" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="icon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
+<link rel="manifest" href="manifest.webmanifest" />
 <meta name="robots" content="noindex, nofollow" />
 <title>Formulaire - Jardinerie Marcipont</title>
 <style>
@@ -130,6 +134,7 @@ form{padding-top:26px}
 .saved-note{text-align:center;color:var(--ink-soft);font-size:.82rem;padding:6px 0 26px}
 .foot{text-align:center;color:var(--ink-soft);font-size:.8rem;padding:8px 18px 30px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@supports (padding: max(0px)){.top{padding-top:max(34px,env(safe-area-inset-top))}.bar-inner{padding-bottom:max(14px,env(safe-area-inset-bottom))}}
 </style>
 </head>
 <body>
@@ -420,5 +425,6 @@ form{padding-top:26px}
   });
 })();
 </script>
+<script src="app.js" defer></script>
 </body>
 </html>

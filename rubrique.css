@@ -198,3 +198,12 @@ img,svg{max-width:100%;display:block}
   .brand .mark{width:40px;height:40px}
   .brand-txt b{font-size:1.28rem}
 }
+
+/* PWA : bouton installer + zones sures iOS (safe-area) */
+.mm-install{color:var(--accent-ink);font-weight:600}
+@supports (padding: max(0px)){
+  .header{padding-top:env(safe-area-inset-top)}
+  .header-inner{padding-left:max(clamp(20px,5vw,46px),env(safe-area-inset-left));padding-right:max(clamp(20px,5vw,46px),env(safe-area-inset-right))}
+  .wa-float{bottom:max(22px,env(safe-area-inset-bottom));left:max(22px,env(safe-area-inset-left))}
+  .totop{bottom:max(22px,env(safe-area-inset-bottom));right:max(22px,env(safe-area-inset-right))}
+}
