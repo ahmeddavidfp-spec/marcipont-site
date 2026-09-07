@@ -1,12 +1,12 @@
-# Site — Jardinerie Marcipont
+# Site - Jardinerie Marcipont
 
 Site vitrine de la Jardinerie Marcipont (Jemeppe-sur-Sambre, Belgique).
 Site statique, sans build : il suffit de servir les fichiers tels quels.
 
 ## Contenu
-- `index.html` — le site (hero, univers, montages, histoire, galerie, Facebook, contact + carte).
-- `formulaire-client.html` — formulaire dynamique de collecte d'infos (réponses renvoyées par WhatsApp).
-- `images/montages/` — photos réelles des montages floraux.
+- `index.html` - le site (hero, univers, montages, histoire, galerie, Facebook, contact + carte).
+- `formulaire-client.html` - formulaire dynamique de collecte d'infos (réponses renvoyées par WhatsApp).
+- `images/montages/` - photos réelles des montages floraux.
 
 ## Mise en ligne (permanent, gratuit)
 

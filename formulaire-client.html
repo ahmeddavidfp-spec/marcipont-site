@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="manifest" href="site.webmanifest" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Formulaire — Jardinerie Marcipont</title>
+<title>Formulaire - Jardinerie Marcipont</title>
 <style>
 :root{
   --ground:#eef3e6;--surface:#ffffff;--surface-2:#e7eedd;
@@ -203,7 +203,7 @@ form{padding-top:26px}
       {id:"domaine", l:"Nom de domaine déjà existant", opt:true, ph:"www...", half:true},
       {id:"tva", l:"N° d'entreprise / TVA", opt:true, ph:"BE 0...", half:true}
     ]},
-    {t:"Horaires", ic:"2", intro:"Ex. « 9h00 – 18h30 » ou « Fermé ».", f:[
+    {t:"Horaires", ic:"2", intro:"Ex. « 9h00 - 18h30 » ou « Fermé ».", f:[
       {id:"h_lun", l:"Lundi", ph:"", half:true},
       {id:"h_mar", l:"Mardi", ph:"", half:true},
       {id:"h_mer", l:"Mercredi", ph:"", half:true},
@@ -243,7 +243,7 @@ form{padding-top:26px}
     ]},
     {t:"Votre histoire", ic:"7", intro:"Pour la rubrique « Notre histoire ».", f:[
       {id:"hist_annee", l:"Année de création", ph:"1985 ?", half:true},
-      {id:"hist_fondateur", l:"Fondateur(s) — nom(s)", ph:"", half:true},
+      {id:"hist_fondateur", l:"Fondateur(s) - nom(s)", ph:"", half:true},
       {id:"hist_gerant", l:"Gérants actuels (famille / génération)", ph:""},
       {id:"hist_dates", t:"area", l:"2 ou 3 dates ou étapes marquantes", ph:""},
       {id:"hist_valeurs", t:"area", l:"Ce qui vous rend unique / vos valeurs", ph:""}
@@ -361,13 +361,13 @@ form{padding-top:26px}
     var done=core.filter(isFilled).length;
     var pct=core.length?Math.round(done/core.length*100):0;
     pfill.style.width=pct+"%"; ptxt.textContent=pct+" %";
-    barHint.textContent = pct<100 ? (done+" / "+core.length+" questions essentielles") : "Tout est prêt — envoyez vos réponses ✅";
+    barHint.textContent = pct<100 ? (done+" / "+core.length+" questions essentielles") : "Tout est prêt - envoyez vos réponses ✅";
   }
   updateProgress();
 
   function buildText(){
     var L=[];
-    L.push("FORMULAIRE — MISE À JOUR DU SITE");
+    L.push("FORMULAIRE - MISE À JOUR DU SITE");
     L.push("Jardinerie Marcipont");
     if(data.repondant)L.push("Rempli par : "+data.repondant);
     L.push("");
@@ -383,7 +383,7 @@ form{padding-top:26px}
         }
         if(isFilled(f)){lines.push(f.l.replace(/\s*\(facultatif\)/,"")+" : "+data[f.id]);}
       });
-      if(lines.length){L.push("— "+sec.t.toUpperCase()+" —");L=L.concat(lines);L.push("");}
+      if(lines.length){L.push("- "+sec.t.toUpperCase()+" -");L=L.concat(lines);L.push("");}
     });
     return L.join("\n").trim();
   }
