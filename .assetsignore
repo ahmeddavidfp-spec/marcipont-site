@@ -1,0 +1,7 @@
+# Fichiers de config / passation : ne pas les servir en public sur le site
+wrangler.jsonc
+.assetsignore
+.gitignore
+README.md
+render.yaml
+_import

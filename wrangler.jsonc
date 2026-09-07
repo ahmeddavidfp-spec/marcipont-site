@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  // Nom du Worker conserve : il porte le domaine jardinerie-marcipont.be (+ www).
+  // Chaque build (Workers Builds relie a GitHub) deploie ici, de facon deterministe.
+  "name": "jardinerie-marcipont",
+  "compatibility_date": "2026-09-05",
+  // Site vitrine 100% statique : aucun script Worker, uniquement des fichiers servis tels quels.
+  "assets": {
+    "directory": "./",
+    // Pas de fichier trouve = vraie 404 (le hors-ligne est gere par le service worker).
+    "not_found_handling": "404-page"
+  }
+}
