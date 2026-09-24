@@ -40,5 +40,11 @@ IMPORTANT : a chaque livraison, incrementer `VERSION` dans `sw.js` (ex. marcipon
 
 La plus recente en haut.
 
+### 2026-09-24 (service worker marcipont-v3)
+- Interrupteur de maintenance du parc Scribeo pose. Le Worker `jardinerie-marcipont` n'avait pas de script (fichiers seuls) : il recoit `interrupteur.js`, qui lit la cle `marcipont` de l'espace KV commun (liaison `MAINT`) puis sert les fichiers (`env.ASSETS`). `off` : page de coupure Scribeo en 503 (liaison de service `OPS` vers `scribeo-ops`, puis requete reseau, puis repli integre) ; `tech` : page `offline.html` du site en 503 ; toute autre valeur ou absence : site normal. `/sw.js` et `/robots.txt` passent toujours.
+- Quota : seules les pages passent par le script (`run_worker_first` qui exclut `/images/`, les png, jpg, svg, css, js, `robots.txt` et le manifeste).
+- `interrupteur.js` ajoute a `.assetsignore` ; `workers_dev: true` rendu explicite (adresse workers.dev active, on la garde).
+- Teste en local (`wrangler dev`, KV local) : accueil 503 avec la cle a `off`, 200 sans cle ; `sw.js` et `robots.txt` en 200 pendant la coupure. Le push sur `main` deploie (Workers Builds).
+
 ### 2026-09-24 (service worker marcipont-v2)
 - Bouton "Installer l'app" limite a Android ; la notice iOS et le bouton sur ordinateur sont retires.

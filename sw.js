@@ -2,7 +2,7 @@
    Strategie : pages / CSS / JS / manifeste = reseau d'abord (toujours a jour),
    images = cache d'abord, jamais les videos ni la musique.
    Changer VERSION a chaque livraison. */
-const VERSION = "marcipont-v2";
+const VERSION = "marcipont-v3";
 const OFFLINE = "/offline.html";
 const CORE = [
   "/", "/offline.html",
